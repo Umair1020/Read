@@ -25,6 +25,7 @@ function DemoFile({ pdfDoc, userId }) {
   const [inputPlaceholder, setInputPlaceholder] = useState("Type Message here");
   const handleOptionClick = async (option) => {
     // Translate a paragraph
+    setShowLogoAndText(false);
     if (option === "Locate a specific section") {
       setIsLocateSectionSelected(true);
       setInputPlaceholder("Enter desired section you want to search"); // Set the state to true when this option is selected
@@ -35,7 +36,10 @@ function DemoFile({ pdfDoc, userId }) {
       await handleUserMessage(option); // For other options, proceed as before
       setShowOptions(false);
     }
-  };
+  }
+  const [showLogoAndText, setShowLogoAndText] = useState(true);
+
+
   const [isLoading, setIsLoading] = useState(false);
   let confirm;
   // State to store chat messages
@@ -149,10 +153,16 @@ function DemoFile({ pdfDoc, userId }) {
                     }
                   />
                 ))}
-                <div style={{ position: "absolute", top: "25%", left: "35%" }} >
-                <img className="d-flex justify-content-center  align-items-center mx-auto" alt="Logo" src={logo} />
-                <h2 className="text-start">How can I help you today?</h2>
-                </div>
+                {showLogoAndText && (
+                  <div style={{ position: "absolute", top: "25%", left: "35%" }}>
+                    <img
+                      className="d-flex justify-content-center align-items-center mx-auto"
+                      alt="Logo"
+                      src={logo}
+                    />
+                    <h2 className="text-start">How can I help you today?</h2>
+                  </div>
+                )}
                 {showOptions && (
                   <div
                     style={{
@@ -301,11 +311,11 @@ function DemoFile({ pdfDoc, userId }) {
 
                 {showOptions && (
                   <div
-                  style={{
-                    margin: "auto",
-                    borderColor: "rgba(0,0,0,.1)",
-                    overflowY: "scroll",
-                  }}
+                    style={{
+                      margin: "auto",
+                      borderColor: "rgba(0,0,0,.1)",
+                      overflowY: "scroll",
+                    }}
                   >
                     {/* Option buttons with specific content */}
                     <div>
@@ -326,6 +336,7 @@ function DemoFile({ pdfDoc, userId }) {
                         <div className="flex flex-col overflow-hidden">
                           <div className=" font-normal">Find Summary</div>
                           <p className=" opacity-50 w-100">
+
                             Get a quick summary of the PDF content
                           </p>
                         </div>
