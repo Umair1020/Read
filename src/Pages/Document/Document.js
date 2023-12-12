@@ -218,8 +218,14 @@ const Document = () => {
       {show && (
         <div
           style={{
-            // position: "absolute",
+            position: "fixed",
+            // display: "flex",
+            // justifyContent: "center",
+            // alignItems: "center", 
+            background: "rgba(0, 0, 0, 0.46)",
+            backdropFilter: "blur(5px)",
             zIndex: 9999,
+            inset: 0,
             top: "0%",
             left: "0%",
             margin: "auto",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./model.css";
 import { useNavigate } from "react-router-dom";
+import { FaCloudUploadAlt } from "react-icons/fa";
 import { useFile } from "../../FIleContext";
 const Model = ({ hide }) => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Model = ({ hide }) => {
         // Add your logic here for URL input
       }
     }
-  
+
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -54,16 +55,10 @@ const Model = ({ hide }) => {
 
   return (
     <div className="sc-f44562c1-0 boSApP">
-      {/* {pdfBlobUrl && (
-        <iframe
-          src="http://localhost:3000/46853edb-a231-41ae-810c-3990203d474a"
-          style={{ width: "100%", height: "500px" }}
-          frameBorder="0"
-        ></iframe>
-      )} */}
+
       <div
         className="sc-f44562c1-1 cseGOX my-3"
-        style={{ maxWidth: "500px", margin: "auto" }}
+        style={{ maxWidth: "700px", margin: "auto" }}
         data-show=""
       >
         <div
@@ -87,46 +82,89 @@ const Model = ({ hide }) => {
             X
           </button>
         </div>
-{/* 
-        <h3 className="sc-ebf96a8a-0 kuNXAT">Upload a document</h3> */}
-        <button  style={activeButton === "document" ? { background: "#000", color: "#fff" } : {}}  className="rounded-md ml-6 bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => toggleSections("document")}>Upload by Document</button>
-        <button   style={activeButton === "url" ? { background: "#000", color: "#fff" } : {}} className="rounded-md ml-6 bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => toggleSections("url")}>Upload by URL</button>
+        <div style={{
+          display: "flex",
+          gap: "4px",
+          padding: "4px",
+          marginBlock: "24px",
+          background: "rgb(246, 246, 248)",
+          borderRadius: "24px",
+          width: " fit-content",
+        }}>
+          <button
+            style={activeButton === "document" ? {
+              background: "rgb(255, 255, 255)",
+              padding: "8px 16px",
+              boxShadow: "rgba(47, 43, 67, 0.1) 0px 1px 3px, rgba(47, 43, 67, 0.1) 0px -1px 0px inset",
+              borderRadius: "24px",
+              cursor: "pointer"
+            } : {
+              background: "transparent",
+              padding: "8px 16px",
+              borderRadius: "0px",
+              cursor: "pointer"
+            }}
+            className=""
+            onClick={() => toggleSections("document")}
+          >
+            Upload by Document
+          </button>
+          <button
+            style={activeButton === "url" ? {
+              background: "rgb(255, 255, 255)",
+              padding: "8px 16px",
+              boxShadow: "rgba(47, 43, 67, 0.1) 0px 1px 3px, rgba(47, 43, 67, 0.1) 0px -1px 0px inset",
+              borderRadius: "24px",
+              cursor: "pointer"
+            } : {
+              background: "transparent",
+              padding: "8px 16px",
+              borderRadius: "0px",
+              cursor: "pointer"
+            }}
+            className=""
+            onClick={() => toggleSections("url")}
+          >
+            Upload by URL
+          </button>
+        </div>
         <p className="sc-ebf96a8a-1 bYmorg"></p>
         <div>
           <div className="space-y-4" style={{ cursor: "pointer" }}>
-          {showFileUpload && (
-            <div
-              className="h-40 w-full relative text-center file-upload-section"
-              style={{ cursor: "pointer" }}
-            >
-              <input
-                className="cursor-pointer hidden"
+            {showFileUpload && (
+              <div
+                className="h-40 w-full relative text-center file-upload-section"
                 style={{ cursor: "pointer" }}
-                type="file"
-                id="input-file-upload"
-                required
-                accept="application/pdf"
-                onChange={handleFileChange}
-              />
-              <label
-                style={{ cursor: "pointer" }}
-                className="h-full flex items-center justify-center border rounded transition-all bg-white border-dashed border-stone-300"
-                for="input-file-upload"
               >
-                <div className="cursor-pointer">
-                  <p className="pointer-events-none font-medium text-base leading-6 pointer opacity-75">
-                    Select a document
-                  </p>
-                  <p className="pointer-events-none font-medium text-sm leading-6 pointer text-gray-600 opacity-75">
-                    Max file size 10MB
-                  </p>
-                </div>
-              </label>
-            </div>
-             )}
+                <input
+                  className="cursor-pointer hidden"
+                  style={{ cursor: "pointer" }}
+                  type="file"
+                  id="input-file-upload"
+                  required
+                  accept="application/pdf"
+                  onChange={handleFileChange}
+                />
+                <label
+                  style={{ cursor: "pointer" }}
+                  className="h-full flex items-center justify-center border rounded transition-all bg-white border-dashed border-stone-300"
+                  for="input-file-upload"
+                >
+                  <div className="cursor-pointer mx-auto">
+                    <FaCloudUploadAlt className="mx-auto fs-2" />
+                    <p className="pointer-events-none font-medium text-base leading-6 pointer opacity-75">
+                    Click to upload or drag and drop
+                    </p> 
+                    <p className="pointer-events-none font-medium text-sm leading-6 pointer text-gray-600 opacity-75">
+                    Supported formats: .pdf', '.txt', '.ppt', '.pptx', '.csv', '.epub', '.rtf'
+                    </p>
+                  </div>
+                </label>
+              </div>
+            )}
             {name.name}
 
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <div className="flex-grow border-t border-gray-200"></div>
 
               <span className="flex-shrink mx-4 uppercase text-gray-600 text-xs">
@@ -134,22 +172,45 @@ const Model = ({ hide }) => {
               </span>
 
               <div className="flex-grow border-t border-gray-200"></div>
-            </div>
+            </div> */}
             {!showFileUpload && (
-            <div className="flex flex-col space-y-2 url-input-section">
-              <label className="pointer-events-none font-medium text-base leading-6 pointer opacity-75">
-                Import from URL
-              </label>
-              <div className="sc-1c859520-0 jHAXMR ">
-                <input
-                  className="sc-1c859520-1 cvZGAj grow text-sm"
-                  type="url"
-                  placeholder="https://cdn.openai.com/papers/gpt-4.pdf"
-                  value=""
-                />
-              </div>
-            </div>
- )}
+              <>
+                <div className="flex flex-col space-y-2 url-input-section">
+                  <label className="pointer-events-none font-medium text-base leading-6 pointer opacity-75">
+                    Import from URL
+                  </label>
+                  <div className="sc-1c859520-0 jHAXMR ">
+                    <input
+                      className="sc-1c859520-1 cvZGAj grow text-sm"
+                      type="url"
+                      placeholder="https://cdn.openai.com/papers/gpt-4.pdf"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-between items-center py-1 space-x-3">
+                  <button
+                    type=""
+                    disabled=""
+                    className="sc-7ff41d46-0 aEnZv"
+                    onClick={handleUrl}
+                  >
+                    Upload
+                  </button>
+                  <button
+                    type="button"
+                    className="sc-7ff41d46-0 aEnZv !bg-[#f8f5ee] !text-black/75"
+                    style={{ border: "1px solid rgb(229, 227, 218)" }}
+                    fdprocessedid="9z47ta"
+                    onClick={hide}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </>
+
+
+            )}
 
             <div className="flex">
               <span
@@ -184,25 +245,7 @@ Makes the text of a scanned document searchable."
                 </span>
               </span>
             </div>
-            <div className="flex justify-between items-center py-1 space-x-3">
-              <button
-                type=""
-                disabled=""
-                className="sc-7ff41d46-0 aEnZv"
-                onClick={handleUrl}
-              >
-                Upload
-              </button>
-              <button
-                type="button"
-                className="sc-7ff41d46-0 aEnZv !bg-[#f8f5ee] !text-black/75"
-                style={{ border: "1px solid rgb(229, 227, 218)" }}
-                fdprocessedid="9z47ta"
-                onClick={hide}
-              >
-                Cancel
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
