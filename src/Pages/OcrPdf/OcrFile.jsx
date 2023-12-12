@@ -12,6 +12,7 @@ import {
 import axios from "axios";
 import { useMediaQuery } from "react-responsive";
 import { baseurl } from "../../utils/BaseUrl";
+import logo from "../../assets/2.svg"
 
 function OcrFile({ pdfDoc, userId }) {
   console.log(pdfDoc);
@@ -21,6 +22,10 @@ function OcrFile({ pdfDoc, userId }) {
   const [isLocateSectionSelected, setIsLocateSectionSelected] = useState(false);
   const [isLanguageSelected, setLanguageSelected] = useState(false);
   const [inputPlaceholder, setInputPlaceholder] = useState("Type Message here");
+ 
+  const [showLogoAndText, setShowLogoAndText] = useState(true);
+
+
   const handleOptionClick = async (option) => {
     // Translate a paragraph
     if (option === "Locate a specific section") {
@@ -119,13 +124,22 @@ function OcrFile({ pdfDoc, userId }) {
                     style={message.sender === "Pdf " ? { textAlign: "left" } : {}}
                   />
                 ))}
-
+   {showLogoAndText && (
+                  <div style={{ position: "absolute", top: "25%", left: "35%" }}>
+                    <img
+                      className="d-flex justify-content-center align-items-center mx-auto"
+                      alt="Logo"
+                      src={logo}
+                    />
+                    <h2 className="text-start">How can I help you today?</h2>
+                  </div>
+                )}
                 {showOptions && (
                   <div
                     style={{
                       position: "absolute",
                       left: 0,
-                      bottom: 0,
+                      bottom: "10%",
                       margin: "auto",
                       borderColor: "rgba(0,0,0,.1)",
                     }}
@@ -133,18 +147,15 @@ function OcrFile({ pdfDoc, userId }) {
                     {/* Option buttons with specific content */}
                     <div style={{ display: "flex" }}>
                       <button
-                        className="btn mx-3"
+                        className="mx-3"
                         style={{
+                          flex: "1",
                           border: "2px solid #000",
                           borderRadius: "20px",
-                          margin: "10px",
-                          width: "-webkit-fill-available",
+                          padding: "10px",
                           cursor: "pointer",
-                          padding: "10px"
                         }}
-                        onClick={() =>
-                          handleOptionClick("Find a summary of the document")
-                        }
+                        onClick={() => handleOptionClick("Find a summary of the document")}
                       >
                         <div className="flex flex-col overflow-hidden">
                           <div className=" font-normal">Find Summary</div>
@@ -155,42 +166,37 @@ function OcrFile({ pdfDoc, userId }) {
                       </button>
 
                       <button
-                        className="btn mx-3"
-                        style={{
-                          border: "2px solid #000",
-                          borderRadius: "20px",
-                          cursor: "pointer",
-                          width: "-webkit-fill-available",
-                          padding: "10px",
-                          margin: "10px"
-                        }}
-                        onClick={() =>
-                          handleOptionClick("Locate a specific section")
-                        }
-                      >
+    className="mx-3"
+    style={{
+      flex: "1",
+      border: "2px solid #000",
+      borderRadius: "20px",
+      padding: "10px",
+      cursor: "pointer",
+    }}
+    onClick={() => handleOptionClick("Locate a specific section")}
+  >
                         <div className="flex flex-col overflow-hidden">
                           <div className=" font-normal">Locate Section</div>
                           <div className=" opacity-50">
                             Find a specific section or chapter
                           </div>
                         </div>
-                      </button>
+                      </button> <br />
                     </div>
-
-                    <div style={{ display: "flex" }}>
-                      <button
-                        className="btn mx-3"
-                        style={{
-                          border: "2px solid #000",
-                          borderRadius: "20px",
-                          cursor: "pointer",
-                          width: "-webkit-fill-available",
-
-                          padding: "10px",
-                          margin: "10px",
-                        }}
-                        onClick={() => handleOptionClick("Translate a paragraph")}
-                      >
+                    <br />
+                    <div style={{ display: "flex", width: "100%" }}>
+                    <button
+    className="mx-3"
+    style={{
+      flex: "1",
+      border: "2px solid #000",
+      borderRadius: "20px",
+      padding: "10px",
+      cursor: "pointer",
+    }}
+    onClick={() => handleOptionClick("Translate a paragraph")}
+  >
                         <div className="flex flex-col overflow-hidden">
                           <div className=" font-normal">
                             Translate Paragraph
@@ -202,18 +208,16 @@ function OcrFile({ pdfDoc, userId }) {
                       </button>
 
                       <button
-                        className="btn mx-3"
-                        style={{
-                          border: "2px solid #000",
-                          borderRadius: "20px",
-                          margin: "10px",
-                          cursor: "pointer",
-                          padding: "10px"
-                        }}
-                        onClick={() =>
-                          handleOptionClick("Extract data or figures")
-                        }
-                      >
+    className="mx-3"
+    style={{
+      flex: "1",
+      border: "2px solid #000",
+      borderRadius: "20px",
+      padding: "10px",
+      cursor: "pointer",
+    }}
+    onClick={() => handleOptionClick("Extract data or figures")}
+  >
                         <div className="flex flex-col overflow-hidden">
                           <div className=" font-normal">Extract Data</div>
                           <div className=" opacity-50">
@@ -322,7 +326,7 @@ function OcrFile({ pdfDoc, userId }) {
                           border: "2px solid #000",
                           borderRadius: "20px",
                           cursor: "pointer",
-                          width: "-webkit-fill-available",
+                          width: "50%",
                           margin: "10px",
                           padding: "10px"
                         }}

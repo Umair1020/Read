@@ -7,13 +7,25 @@ const Model = ({ hide }) => {
   const { setFile, file } = useFile();
   const [name, setName] = useState("");
   const [isOcrChecked, setIsOcrChecked] = useState(false);
+  const [activeButton, setActiveButton] = useState("document");
+  const [showFileUpload, setShowFileUpload] = useState(true);
   console.log(file);
   const handleUrl = () => {
     if (isOcrChecked) {
       navigate("/ocrpdf");
     } else {
+      const fileSection = document.querySelector('.file-upload-section');
+      const urlSection = document.querySelector('.url-input-section');
       navigate("/ask");
+      if (fileSection.style.display !== 'none') {
+        // File upload section is active
+        // Add your logic here for file upload
+      } else if (urlSection.style.display !== 'none') {
+        // URL input section is active
+        // Add your logic here for URL input
+      }
     }
+  
   };
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -30,6 +42,16 @@ const Model = ({ hide }) => {
     }
   };
 
+  const toggleSections = (uploadType) => {
+    if (uploadType === "document") {
+      setShowFileUpload(true);
+      setActiveButton("document");
+    } else if (uploadType === "url") {
+      setShowFileUpload(false);
+      setActiveButton("url");
+    }
+  };
+
   return (
     <div className="sc-f44562c1-0 boSApP">
       {/* {pdfBlobUrl && (
@@ -40,7 +62,7 @@ const Model = ({ hide }) => {
         ></iframe>
       )} */}
       <div
-        className="sc-f44562c1-1 cseGOX"
+        className="sc-f44562c1-1 cseGOX my-3"
         style={{ maxWidth: "500px", margin: "auto" }}
         data-show=""
       >
@@ -65,13 +87,16 @@ const Model = ({ hide }) => {
             X
           </button>
         </div>
-
-        <h3 className="sc-ebf96a8a-0 kuNXAT">Upload a document</h3>
+{/* 
+        <h3 className="sc-ebf96a8a-0 kuNXAT">Upload a document</h3> */}
+        <button  style={activeButton === "document" ? { background: "#000", color: "#fff" } : {}}  className="rounded-md ml-6 bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => toggleSections("document")}>Upload by Document</button>
+        <button   style={activeButton === "url" ? { background: "#000", color: "#fff" } : {}} className="rounded-md ml-6 bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => toggleSections("url")}>Upload by URL</button>
         <p className="sc-ebf96a8a-1 bYmorg"></p>
         <div>
           <div className="space-y-4" style={{ cursor: "pointer" }}>
+          {showFileUpload && (
             <div
-              className="h-40 w-full relative text-center"
+              className="h-40 w-full relative text-center file-upload-section"
               style={{ cursor: "pointer" }}
             >
               <input
@@ -98,6 +123,7 @@ const Model = ({ hide }) => {
                 </div>
               </label>
             </div>
+             )}
             {name.name}
 
             <div className="flex items-center">
@@ -109,12 +135,12 @@ const Model = ({ hide }) => {
 
               <div className="flex-grow border-t border-gray-200"></div>
             </div>
-
-            <div className="flex flex-col space-y-2">
+            {!showFileUpload && (
+            <div className="flex flex-col space-y-2 url-input-section">
               <label className="pointer-events-none font-medium text-base leading-6 pointer opacity-75">
                 Import from URL
               </label>
-              <div className="sc-1c859520-0 jHAXMR">
+              <div className="sc-1c859520-0 jHAXMR ">
                 <input
                   className="sc-1c859520-1 cvZGAj grow text-sm"
                   type="url"
@@ -123,6 +149,7 @@ const Model = ({ hide }) => {
                 />
               </div>
             </div>
+ )}
 
             <div className="flex">
               <span
