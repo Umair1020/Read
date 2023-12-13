@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
+import { useMediaQuery } from "react-responsive";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
   MainContainer,
@@ -32,7 +33,15 @@ const Pdfscanner = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [check, setCheck] = useState("");
   console.log(check);
-  // Function to handle user messages
+  const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    return isDesktop ? children : null;
+  };
+
+  const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    return isMobile ? children : null;
+  };
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [pdfUploaded, setPdfUploaded] = useState(false);
@@ -160,6 +169,8 @@ const Pdfscanner = () => {
     }
   };
   return (
+    <>
+    <Desktop>
     <div>
       <main>
         <SubHead />
@@ -174,7 +185,7 @@ const Pdfscanner = () => {
             </div>
             <div className="w-full flex justify-center">
               {" "}
-              <div className="h-[350px] relative text-center w-75">
+              <div className="relative text-center w-50">
                 <input
                   className="cursor-pointer hidden"
                   type="file"
@@ -197,13 +208,17 @@ const Pdfscanner = () => {
                       <embed
                         src={URL.createObjectURL(selectedFile)}
                         type="application/pdf"
-                        width="700px"
+                        width="auto"
                         height="630px"
-                        className="pdf"
+                        className=""
                       />
                     </div>
                   ) : (
-                    <div className="cursor-pointer flex flex-col items-center space-y-3">
+                    <div className="cursor-pointer flex flex-col items-center space-y-3" style={{
+                      height: "200px", margin: "auto", display: "flex",
+                      alignItems: " center",
+                      justifyContent: "center"
+                    }}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -217,14 +232,14 @@ const Pdfscanner = () => {
                           d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
                         />
                       </svg>
-                      <p className="pointer-events-none font-medium text-sm leading-6 pointer opacity-75">
+                      <p className="d-flex justify-content-center align-items-center pointer-events-none font-medium text-sm leading-6 pointer opacity-75">
                         Click to upload or drag and drop
                       </p>
                     </div>
                   )}
                 </label>
               </div>
-              <div className="w-1/2 pl-2">
+              <div className="w-50">
                 {selectedFile && (
                   <MainContainer>
                     <ChatContainer>
@@ -263,6 +278,117 @@ const Pdfscanner = () => {
         </div>
       </main>
     </div>
+    </Desktop>
+    <Mobile>
+    <div>
+      <main>
+        <SubHead />
+
+        <div className="bg-[#f7f5ee] text-black px-4">
+          <div className=" mx-auto py-16 max-w-7xl">
+            <div className="flex flex-col text-center mb-6">
+              <h1 className="text-5xl font-serif">Resume AI Scanner</h1>
+              <p className="mt-2 text-gray-600">
+                Get resume overview and questions to assess the candidates
+              </p>
+            </div>
+            <div className="w-full ">
+              {" "}
+              <div className="relative text-center w-100">
+                <input
+                  className="cursor-pointer hidden"
+                  type="file"
+                  id="input-file-upload"
+                  accept=".pdf"
+                  onChange={handleFileChange}
+                />
+                <label
+                  className="h-full flex items-center justify-center border rounded transition-all bg-white border-dashed border-stone-300 block  h-96"
+                  htmlFor="input-file-upload"
+                >
+                  {selectedFile ? (
+                    <div className="text-center">
+                      <h2 className="text-lg font-semibold">
+                        {selectedFile.name}
+                      </h2>
+                      <p className="text-sm">
+                        {(selectedFile.size / 1024).toFixed(2)} KB
+                      </p>
+                      <embed
+                        src={URL.createObjectURL(selectedFile)}
+                        type="application/pdf"
+                        width="100%"
+                        height="200px"
+                        className=""
+                      />
+                    </div>
+                  ) : (
+                    <div className="cursor-pointer flex flex-col items-center space-y-3" style={{
+                      height: "200px", margin: "auto", display: "flex",
+                      alignItems: " center",
+                      justifyContent: "center"
+                    }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-8 h-8"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                        />
+                      </svg>
+                      <p className="d-flex justify-content-center align-items-center pointer-events-none font-medium text-sm leading-6 pointer opacity-75">
+                        Click to upload or drag and drop
+                      </p>
+                    </div>
+                  )}
+                </label>
+              </div>
+              <div className="w-100" style={{height: "300px"}}>
+                {selectedFile && (
+                  <MainContainer>
+                    <ChatContainer>
+                      <MessageList
+                        typingIndicator={
+                          isLoading ? (
+                            <TypingIndicator content="Pdf is thinking" />
+                          ) : null
+                        }
+                      >
+                        {/* Map through chat messages and render each message */}
+                        {chatMessages.map((message, i) => {
+                          return (
+                            <Message
+                              key={i}
+                              model={message}
+                              style={
+                                message.sender === "Pdf "
+                                  ? { textAlign: "left" }
+                                  : {}
+                              }
+                            />
+                          );
+                        })}
+                      </MessageList>
+                      <MessageInput
+                        placeholder="Type Message here"
+                        onSend={handleUserMessage}
+                      />
+                    </ChatContainer>
+                  </MainContainer>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    </Mobile>
+   </>
   );
 };
 
