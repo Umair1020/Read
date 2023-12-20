@@ -1750,11 +1750,7 @@
     margin-left: calc(6px * calc(1 - var(--tw-space-x-reverse)))
   }
   
-  .space-y-1>:not([hidden])~:not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(.25rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(.25rem * var(--tw-space-y-reverse))
-  }
+
   
   .space-y-16>:not([hidden])~:not([hidden]) {
     --tw-space-y-reverse: 0;
@@ -1774,12 +1770,7 @@
     margin-bottom: calc(.75rem * var(--tw-space-y-reverse))
   }
   
-  .space-y-4>:not([hidden])~:not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(1rem * var(--tw-space-y-reverse))
-  }
-  
+
   .space-y-40>:not([hidden])~:not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(10rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3544,8 +3535,8 @@
     }
   
     .lg\:px-8 {
-        padding-left: 2rem;
-        padding-right: 2rem
+        padding-left:   6rem;
+        padding-right: 6rem
     }
   
     .lg\:py-24 {

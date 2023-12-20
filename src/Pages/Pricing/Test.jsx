@@ -23,40 +23,18 @@ const Test = () => {
   return (
     <div>
       {userCookie ? <SubHead /> : ""}
-      <div className="flex flex-col justify-center items-center pb-10 mt-4">
-        <div
-          className="grid grid-cols-2 gap-x-1 rounded-full bg-white/5 p-1 text-center text-xs font-semibold leading-5 text-white"
-          id="headlessui-radiogroup-:r1:"
-          role="radiogroup"
-          aria-labelledby="headlessui-label-:r2:"
-        >
+      <div className="flex flex-col justify-center items-center pb-10 mt-4 ">
+        
           <label className="sr-only" id="headlessui-label-:r2:" role="none">
             Payment frequency
           </label>
-          <div
-            className="bg-indigo-500 cursor-pointer rounded-full px-2.5 py-1"
-            id="headlessui-radiogroup-option-:r3:"
-            role="radio"
-            aria-checked="true"
-            tabindex="0"
-            data-headlessui-state="checked"
-          >
-            <span>Monthly</span>
-          </div>
-          <div
-            className="cursor-pointer rounded-full px-2.5 py-1"
-            id="headlessui-radiogroup-option-:r4:"
-            role="radio"
-            aria-checked="false"
-            tabindex="-1"
-            data-headlessui-state=""
-          >
-            {/* <span>Annually</span> */}
-          </div>
-        </div>
+         <br />  <br />  <br />
+            <h2 className="text-dark price">How It Work</h2>
+    
+        
         <div className="space-y-4 mt-8 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
-          <div className="bg-white divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
-            <div className="p-6">
+          <div style={{height:" max-content",  }} className="mx-3 bg-white divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
+            <div className="p-6" >
               <h2 className="text-lg font-medium leading-6 text-gray-900">
                 Hobby
               </h2>
@@ -80,13 +58,13 @@ const Test = () => {
                   onClick={() => {
                     redirectToCheckout(0);
                   }}
-                  className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4"
+                  className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4"
                 >
                   0
                 </button>
               ) : (
                 <Link to="/login">
-                  <button className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4">
+                  <button style={{background: "#fff", color: "#000"}} className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4">
                     sign up
                   </button>
                 </Link>
@@ -142,7 +120,7 @@ const Test = () => {
               </ul>
             </div>
           </div>
-          <div className="bg-white divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
+          <div  style={{height:" max-content", }} className="mx-3 bg-white divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
             <div className="p-6">
               <h2 className="text-lg font-medium leading-6 text-gray-900">
                 Professional
@@ -173,7 +151,7 @@ const Test = () => {
                 </button>
               ) : (
                 <Link to="/login">
-                  <button className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4">
+                  <button style={{background: "rgba(56, 67, 208, 1)"}} className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4">
                     sign up
                   </button>
                 </Link>
@@ -269,7 +247,7 @@ const Test = () => {
               </ul>
             </div>
           </div>
-          <div className="bg-white divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
+          <div  style={{height:" max-content"}} className="mx-3 bg-white divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
             <div className="p-6">
               <h2 className="text-lg font-medium leading-6 text-gray-900">
                 Custom
@@ -293,13 +271,13 @@ const Test = () => {
                   onClick={() => {
                     redirectToCheckout(50);
                   }}
-                  className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4"
+                  style={{background: "#fff", color: "#000"}}  className=" group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4"
                 >
                   50
                 </button>
               ) : (
                 <Link to="/login">
-                  <button className="group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4">
+                  <button style={{background: "#fff", color: "#000"}}  className=" group relative flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-4">
                     sign up
                   </button>
                 </Link>

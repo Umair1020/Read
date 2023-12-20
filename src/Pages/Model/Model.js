@@ -153,10 +153,10 @@ const Model = ({ hide }) => {
                   <div className="cursor-pointer mx-auto">
                     <FaCloudUploadAlt className="mx-auto fs-2" />
                     <p className="pointer-events-none font-medium text-base leading-6 pointer opacity-75">
-                    Click to upload or drag and drop
-                    </p> 
+                      Click to upload or drag and drop
+                    </p>
                     <p className="pointer-events-none font-medium text-sm leading-6 pointer text-gray-600 opacity-75">
-                    Supported formats: .pdf', '.txt', '.ppt', '.pptx', '.csv', '.epub', '.rtf'
+                      Supported formats: .pdf', '.txt', '.ppt', '.pptx', '.csv', '.epub', '.rtf'
                     </p>
                   </div>
                 </label>
