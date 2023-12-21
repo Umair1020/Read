@@ -589,16 +589,18 @@
   text-align: center;
 
 }
-.rounded h3{
 
-font-family: Inter;
-font-size: 36px;
-font-weight: 600;
-line-height: 54px;
-letter-spacing: 0em;
-text-align: center;
+.rounded h3 {
+
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  letter-spacing: 0em;
+  text-align: center;
 
 }
+
 .fa-heart {
   color: rgba(255, 230, 0, 0.959);
   font-size: 30px
@@ -610,12 +612,14 @@ text-align: center;
   box-shadow: -1px 3px 5px #a7a7a7;
   background-color: rgba(216, 217, 229, 1);
 }
+
 .card1 {
   padding: 10px 20px;
   border: none;
   box-shadow: -1px 3px 5px #a7a7a7;
   background-color: rgb(255, 255, 255);
 }
+
 .testimonial {
   font-size: 0.9rem;
   line-height: 1.4rem;
@@ -678,4 +682,206 @@ text-align: center;
     margin: 0px;
     padding: 20px
   }
+}
+
+.faq {
+  padding: 60px 0;
+
+}
+
+.faq .faq-list {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+}
+
+.faq .faq-list li {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+
+}
+
+#faq h2 {
+
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  letter-spacing: 0em;
+  text-align: center;
+
+}
+
+/* .faq .faq-list .question {
+  display: block;
+  position: relative;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  padding-left: 25px;
+  cursor: pointer;
+  color: rgba(26, 27, 41, 1);
+  transition: 0.3s;
+} */
+
+.faq .faq-list i {
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.faq .faq-list p {
+  margin-bottom: 10px;
+  padding: 10px 0 0 25px;
+  background: #F7F7F7;
+  padding: 29px;
+  color: #85858F !important;
+}
+
+.faq .faq-list .icon-show {
+  display: none;
+}
+
+.faq .faq-list .collapsed {
+  color: black;
+}
+
+.faq .faq-list .collapsed:hover {
+  color: #000;
+}
+
+.faq .faq-list .collapsed .icon-show {
+  display: inline-block;
+  transition: 0.6s;
+}
+
+.faq .faq-list .collapsed .icon-close {
+  display: none;
+  transition: 0.6s;
+}
+
+/* Example CSS to adjust alignment and spacing */
+.faq-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: rgba(201, 202, 214, 1);
+}
+
+.faq-item p {
+  margin-top: 10px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  border-radius: 16px;
+
+  
+}
+
+
+
+
+#footer .footer-newsletter form {
+  margin-top: 30px;
+  background: #fff;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 5px;
+  text-align: left;
+  border: 1px solid #9da7fc;
+}
+#footer h4{
+
+font-family: Inter;
+font-size: 24px;
+font-weight: 600;
+line-height: 36px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+#footer .footer-newsletter form input[type=email] {
+  border: 0;
+  padding: 4px 8px;
+  width: calc(100% - 100px);
+}
+
+#footer .footer-newsletter form input[type=submit] {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  bottom: -1px;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px;
+  background: #3b4ef8;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#footer .footer-newsletter form input[type=submit]:hover {
+  background: #0a22f6;
+}
+
+#footer .credits {
+  padding-top: 5px;
+  font-size: 13px;
+  color: #444444;
+}
+
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #e7eafe;
+  color: #3b4ef8;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 5px;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+  background: #3b4ef8;
+  color: #fff;
+  text-decoration: none;
+}
+.box h2 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: 0em;
+
+}
+
+.box p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  color: #C9CAD6;
+
+}
+
+.box button {
+  width: fit-content;
+  float: inline-end;
 }

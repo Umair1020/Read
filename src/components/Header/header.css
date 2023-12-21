@@ -777,10 +777,10 @@
     visibility: visible
   }
   
-  .collapse {
+  /* .collapse {
     visibility: collapse
   }
-  
+   */
   .fixed {
     position: fixed
   }

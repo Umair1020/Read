@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import { Link } from "react-router-dom";
+import { FaMinus } from 'react-icons/fa';
 import Test from "./Pages/Pricing/Test";
+import { FaPlus, FaTimes } from "react-icons/fa";
 import Footer from "./components/Footer/Footer";
 import Index from "./components/css/Info/Info";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,6 +22,11 @@ const Landingpage = () => {
     const isMobile = useMediaQuery({ maxWidth: 767 })
     return isMobile ? children : null
   }
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleAccordionClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
   const technologyLogos = [
     'logo1.svg',
     'logo2.svg',
@@ -32,6 +39,34 @@ const Landingpage = () => {
     'logo1.svg',
     'logo3.svg',
     // Add more logo paths here
+  ];
+  const faqData = [
+    {
+      id: 'faq1',
+      question: 'Easy answers to the product questions we get most often.',
+      answer: 'Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often. ',
+    },
+    {
+      id: 'faq2',
+      question: 'Easy answers to the product questions we get most often.',
+      answer: 'Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often. ',
+    },
+    {
+      id: 'faq3',
+      question: 'Easy answers to the product questions we get most often.',
+      answer: 'Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often. ',
+    },
+    {
+      id: 'faq4',
+      question: 'Easy answers to the product questions we get most often.',
+      answer: 'Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often. ',
+    },
+    {
+      id: 'faq5',
+      question: 'Easy answers to the product questions we get most often.',
+      answer: 'Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.Easy answers to the product questions we get most often. ',
+    },
+    // Add more FAQ items as needed
   ];
   return (
     <div>
@@ -273,7 +308,7 @@ const Landingpage = () => {
               <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                 <div className="icon flex-shrink-0"><img src="/vector1.svg" /></div>
                 <div>
-                  <h4 className="title"><a href="#" class="stretched-link">Upload Documents</a></h4>
+                  <h4 className="title"><a href="#" className="stretched-link">Upload Documents</a></h4>
                   <p className="description">From legal agreements to financial <br /> reports, brings </p>
                 </div>
               </div>
@@ -282,7 +317,7 @@ const Landingpage = () => {
               <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <div className="icon flex-shrink-0"><img src="/vector2.svg" /></div>
                 <div>
-                  <h4 className="title"><a href="#" class="stretched-link">Instant Answers </a></h4>
+                  <h4 className="title"><a href="#" className="stretched-link">Instant Answers </a></h4>
                   <p className="description">From legal agreements to financial <br /> reports, brings </p>
                 </div>
               </div>
@@ -290,7 +325,7 @@ const Landingpage = () => {
               <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <div className="icon flex-shrink-0"><img src="/vector3.svg" /></div>
                 <div>
-                  <h4 className="title"><a href="#" class="stretched-link">Sources Included</a></h4>
+                  <h4 className="title"><a href="#" className="stretched-link">Sources Included</a></h4>
                   <p className="description">From legal agreements to financial <br /> reports, brings </p>
                 </div>
               </div>
@@ -357,17 +392,17 @@ const Landingpage = () => {
 
           </div>
         </section>
-        <section id="pricing" class="pricing section-bg">
-          <div class="container" data-aos="fade-up">
+        <section id="pricing" className="pricing section-bg">
+          <div className="container" data-aos="fade-up">
 
-            <div class="row d-flex  align-items-center">
+            <div className="row d-flex  align-items-center">
 
-              <div class="col-lg-6 col-md-6 sm:pb-32   lg:px-8 lg:py-20" data-aos="zoom-in" data-aos-delay="200">
+              <div className="col-lg-6 col-md-6 sm:pb-32   lg:px-8 lg:py-20" data-aos="zoom-in" data-aos-delay="200">
                 <h2>Seamless <br /> Experience Across Devices</h2>
                 <p>From legal agreements to financial reports, brings your documents to life.You can ask questions, get summaries, find information, and more.</p>
               </div>
 
-              <div class="col-lg-6 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
+              <div className="col-lg-6 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
                 <img src="/frame2.svg" />
               </div>
 
@@ -375,13 +410,50 @@ const Landingpage = () => {
 
           </div>
         </section>
-        <div class="container rounded"> <h3 class="tag">What Our Happy Client Say</h3> <p class=" text-center head">From legal agreements to financial reports, brings your documents to life.You can ask questions, get <br /> summaries, find information, and more.</p> <div class="row d-flex owl-carousel owl-theme mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32  lg:px-4"> <div class="col-lg-6 owl-item"> <div class=" card d-flex flex-column"> <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star-half-alt active-star"></span> </div> <div class="testimonial">“From legal agreements to financial reports, brings your documents to life.You can ask questions, get summaries, find information, and more”
+        <div className="container rounded"> <h3 className="tag">What Our Happy Client Say</h3> <p className=" text-center head">From legal agreements to financial reports, brings your documents to life.You can ask questions, get <br /> summaries, find information, and more.</p> <div className="row d-flex owl-carousel owl-theme mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32  lg:px-4"> <div className="col-lg-6 owl-item"> <div className=" card d-flex flex-column"> <div className="mt-2"> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star-half-alt active-star"></span> </div> <div className="testimonial">“From legal agreements to financial reports, brings your documents to life.You can ask questions, get summaries, find information, and more”
           Devid Weilium
           Researcher </div> <br />
-          <div class="col-lg-6  d-flex flex-row profile pt-4 mt-auto">
-            <img src="/testmonial.svg" alt="" class="rounded-circle" /> <div class=" d-flex flex-column pl-2"> <div class="name">Megan</div> <p class="text-muted designation">CEO of My Company</p> </div> </div> </div> </div> <div class="col-lg-6 owl-item"> <div class="card1 d-flex flex-column"> <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star-half-alt active-star"></span> </div> <div class="main font-weight-bold pb-2 pt-1">Great Service</div> <div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div> <div class="d-flex flex-row profile pt-4 mt-auto">
-              <img src="/testmonial.svg" alt="" class="rounded-circle" /> <div class="d-flex flex-column pl-2"> <div class="name">Megan</div> <p class="text-muted designation">CEO of My Company</p> </div> </div> </div>  <br /> <br /> <br /></div> <br /> <div class="col-lg-6 owl-item"> <div class="card d-flex flex-column"> <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star-half-alt active-star"></span> </div> <div class="main font-weight-bold pb-2 pt-1">Great Service</div> <div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div> <div class="d-flex flex-row profile pt-4 mt-auto"> <img src="/testmonial.svg" alt="" class="rounded-circle" /> <div class="d-flex flex-column pl-2"> <div class="name">Megan</div> <p class="text-muted designation">CEO of My Company</p> </div> </div> </div> </div> <br /> <div class="col-lg-6 owl-item"> <div class="card d-flex flex-column"> <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star-half-alt active-star"></span> </div> <div class="main font-weight-bold pb-2 pt-1">Great Service</div> <div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div>  <div class="d-flex flex-row profile pt-4 mt-auto"> <img src="/testmonial.svg" alt="" class="rounded-circle" /> <div class="d-flex flex-column pl-2"> <div class="name">Megan</div> <p class="text-muted designation">CEO of My Company</p> </div> </div></div> </div> </div> </div>
+          <div className="col-lg-6  d-flex flex-row profile pt-4 mt-auto">
+            <img src="/testmonial.svg" alt="" className="rounded-circle" /> <div className=" d-flex flex-column pl-2"> <div className="name">Megan</div> <p className="text-muted designation">CEO of My Company</p> </div> </div> </div> </div> <div className="col-lg-6 owl-item"> <div className="card1 d-flex flex-column"> <div className="mt-2"> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star-half-alt active-star"></span> </div> <div className="main font-weight-bold pb-2 pt-1">Great Service</div> <div className="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div> <div className="d-flex flex-row profile pt-4 mt-auto">
+              <img src="/testmonial.svg" alt="" className="rounded-circle" /> <div className="d-flex flex-column pl-2"> <div className="name">Megan</div> <p className="text-muted designation">CEO of My Company</p> </div> </div> </div>  <br /> <br /> <br /></div> <br /> <div className="col-lg-6 owl-item"> <div className="card d-flex flex-column"> <div className="mt-2"> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star-half-alt active-star"></span> </div> <div className="main font-weight-bold pb-2 pt-1">Great Service</div> <div className="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div> <div className="d-flex flex-row profile pt-4 mt-auto"> <img src="/testmonial.svg" alt="" className="rounded-circle" /> <div className="d-flex flex-column pl-2"> <div className="name">Megan</div> <p className="text-muted designation">CEO of My Company</p> </div> </div> </div> </div> <br /> <div className="col-lg-6 owl-item"> <div className="card d-flex flex-column"> <div className="mt-2"> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star active-star"></span> <span className="fas fa-star-half-alt active-star"></span> </div> <div className="main font-weight-bold pb-2 pt-1">Great Service</div> <div className="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div>  <div className="d-flex flex-row profile pt-4 mt-auto"> <img src="/testmonial.svg" alt="" className="rounded-circle" /> <div className="d-flex flex-column pl-2"> <div className="name">Megan</div> <p className="text-muted designation">CEO of My Company</p> </div> </div></div> </div> </div> </div>
+        <section id="faq" className="faq">
+          <div className="container lg:px-8 lg:py-20" data-aos="fade-up">
+            <div className="section-title">
+              <h2 className="text-center">FAQ’s</h2>
+            </div>
+            <div className="row d-flex">
+              {faqData.map((item, index) => (
+                <div key={item.id} className="col-lg-6">
+                  <div
+                    className={`question faq-item ${activeIndex === index ? 'active' : ''}`}
+                    onClick={() => handleAccordionClick(index)}
+                  >
+                    {activeIndex === index ? <FaMinus className="icon-close" /> : <FaPlus className="icon-show" />}
+                    {item.question}
+                  </div>
+                  <div className={`collapse ${activeIndex === index ? 'show faq-list ' : ''}`} id={item.id}>
+                    <p>{item.answer}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <div className="container" style={{ background: "#F7F7F7",padding: "60px",  height: "auto"}}>
+          <div className="row box" style={{ background: "#1E2A7F", padding: "20px", width: "850px", margin: "auto" }}>
+            <div className="col-lg-7">
+              <h2>Try Now For Free and Chat with any PDF document.</h2>
+              <p>Easy answers to the product questions we get most often.Easy answers to the product questions we get most often.</p>
+            </div>
+            <div className="col-lg-5">
+              <button className="" style={{ padding: "15px", background: "#1A1B29", color: "#fff" }}>
+                Start For Free
+              </button>
+            </div>
+          </div>
+        </div>
         <Footer />
+        
       </Desktop>
     </div>
   );

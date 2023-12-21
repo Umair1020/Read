@@ -2,9 +2,22 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div
-      className="mx-auto  px-6 pb-8 mt-8 sm:mt-12 lg:px-8 lg:mt-16 border-t border-gray-900/10 pt-16"
+      className="mx-auto  px-6 pb-8  lg:px-8  border-t border-gray-900/10 pt-16"
       style={{ background: "#111827", color: "white", width: "100%" }}
     >
+
+      <footer id="footer">
+
+        <div class="footer-top">
+          <div class="col-lg-4 col-md-6 footer-newsletter mx-auto">
+            <h4>Subscribe To Receive Latest News About New Tools</h4>
+
+            <form action="" method="post">
+              <input type="email" name="email" /><input type="submit" value="Subscribe" />
+            </form>
+          </div>
+        </div>
+      </footer> <br /><br />
       <div className="xl:grid xl:grid-cols-3 xl:gap-8">
         <div className="space-y-8">
           <img
@@ -243,7 +256,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      </div> <hr />
+      <div class="container d-md-flex my-3">
+
+
+        <p class="copyright mx-auto text-center"> ©MagicalDocs All Rights Reserved</p>
       </div>
+
+
     </div>
   );
 };
