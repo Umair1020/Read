@@ -382,10 +382,26 @@
   top: 0;
   left: 20px;
   /* Adjust the position of the vertical line */
-  width: 3px;
+  width: 4px;
   /* Adjust the thickness of the vertical line */
   height: 100%;
   background-color: rgba(56, 67, 208, 1);
+}
+
+@media (max-width:991px) {
+  .count-box:before {
+    height: 80%;
+    left: 10px;
+  }
+
+  .count-box h2 {
+    color: rgba(56, 67, 208, 1);
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .counts .count-box span {
@@ -438,14 +454,33 @@
   z-index: 10;
 }
 
-.about .content {
-  padding: 30px 30px 30px 0;
-}
 
 .about .content h3 {
   font-weight: 700;
   font-size: 34px;
   margin-bottom: 30px;
+
+}
+
+@media (max-width: 991px) {
+  .about .content h3 {
+    text-align: start;
+    font-weight: 700;
+    font-size: 28px;
+
+  }
+.faq{
+  padding: 0 !important;
+}
+  .video h2 {
+   
+    font-size: 20px;
+  
+  }
+  .about .content p {
+    text-align: start;
+  }
+
 }
 
 .about .content p {
@@ -607,7 +642,7 @@
 }
 
 .card {
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: none;
   box-shadow: -1px 3px 5px #a7a7a7;
   background-color: rgba(216, 217, 229, 1);
@@ -619,7 +654,12 @@
   box-shadow: -1px 3px 5px #a7a7a7;
   background-color: rgb(255, 255, 255);
 }
-
+@media (max-width: 991px) {
+  .card1 {
+    padding: 5px 20px !important;
+   
+  }
+}
 .testimonial {
   font-size: 0.9rem;
   line-height: 1.4rem;
@@ -770,8 +810,9 @@
   justify-content: space-between;
   cursor: pointer;
   margin-bottom: 10px;
+  border-radius: 15px;
   padding: 20px;
-  background-color: rgba(201, 202, 214, 1);
+  background-color: #F7F7F7;
 }
 
 .faq-item p {
@@ -784,7 +825,7 @@
   padding: 32px;
   border-radius: 16px;
 
-  
+
 }
 
 
@@ -792,27 +833,30 @@
 
 #footer .footer-newsletter form {
   margin-top: 30px;
-  background: #fff;
   padding: 6px 10px;
   position: relative;
   border-radius: 5px;
   text-align: left;
   border: 1px solid #9da7fc;
+  background: #D8D9E5;
 }
-#footer h4{
 
-font-family: Inter;
-font-size: 24px;
-font-weight: 600;
-line-height: 36px;
-letter-spacing: 0em;
-text-align: center;
+#footer h4 {
+
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: center;
 
 }
+
 #footer .footer-newsletter form input[type=email] {
   border: 0;
-  padding: 4px 8px;
+  padding: 20px ;
   width: calc(100% - 100px);
+background: #D8D9E5;
 }
 
 #footer .footer-newsletter form input[type=submit] {
@@ -861,6 +905,7 @@ text-align: center;
   color: #fff;
   text-decoration: none;
 }
+
 .box h2 {
   color: #fff;
   font-family: Inter;

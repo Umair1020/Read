@@ -13,7 +13,7 @@ const Footer = () => {
             <h4>Subscribe To Receive Latest News About New Tools</h4>
 
             <form action="" method="post">
-              <input type="email" name="email" /><input type="submit" value="Subscribe" />
+              <input type="email" name="email" placeholder="Your Email" /><input type="submit" value="Subscribe" />
             </form>
           </div>
         </div>
