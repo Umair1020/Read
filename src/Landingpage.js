@@ -208,7 +208,7 @@ const Landingpage = () => {
           <div className="row gy-5 mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32  lg:px-8 lg:py-20">
 
             <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-              <div className="icon flex-shrink-0"><img src="/frame 27.svg" /></div>
+              <div className="icon flex-shrink-0"><img src="/Frame 27.svg" /></div>
               <div className="mx-auto">
                 <h4 className="title"><a href="#" className="stretched-link">Upload Documents</a></h4>
                 <p className="description">From legal agreements to financial <br /> reports, brings </p>
@@ -537,13 +537,13 @@ const Landingpage = () => {
             </div>
           </section>
         </div> <br /><br /><br />
-        <section id="technologies" className="technologies d-flex section-bg " style={{ background: "rgba(216, 217, 229, 1)", padding: "30px" }}>
+        <section id="" className="   " style={{ background: "rgba(216, 217, 229, 1)", padding: "30px" }}>
 
-          <div className="row justify-content-center">
+          <div className="row justify-content-center align-items-center mx-auto">
             <div className="col-lg-12 col-md-10">
               <Swiper
-                slidesPerView={3} // Number of logos to show
-                spaceBetween={20} // Space between logos
+                slidesPerView={5} // Number of logos to show
+                spaceBetween={2} // Space between logos
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
@@ -555,7 +555,7 @@ const Landingpage = () => {
                     spaceBetween: 10,
                   },
                   '@0.75': {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   '@1.00': {
@@ -564,7 +564,7 @@ const Landingpage = () => {
                   },
                   '@1.50': {
                     slidesPerView: 4,
-                    spaceBetween: 50,
+                    spaceBetween: 20,
                   },
                 }}
 
@@ -595,7 +595,7 @@ const Landingpage = () => {
             <div className="row gy-5 mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32  lg:px-8 lg:py-20">
 
               <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                <div className="icon flex-shrink-0"><img src="/vector1.svg" /></div>
+                <div className="icon flex-shrink-0"><img src="/Frame 27.svg" /></div>
                 <div>
                   <h4 className="title"><a href="#" className="stretched-link">Upload Documents</a></h4>
                   <p className="description">From legal agreements to financial <br /> reports, brings </p>
@@ -612,7 +612,7 @@ const Landingpage = () => {
               </div>
 
               <div className="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <div className="icon flex-shrink-0"><img src="/vector3.svg" /></div>
+                <div className="icon flex-shrink-0"><img src="/Frame 28.svg" /></div>
                 <div>
                   <h4 className="title"><a href="#" className="stretched-link">Sources Included</a></h4>
                   <p className="description">From legal agreements to financial <br /> reports, brings </p>
